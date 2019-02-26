@@ -72,8 +72,8 @@ export const ScrollableLane = styled.div`
   overflow-x: hidden;
   align-self: center;
   max-height: 90vh;
-  padding-bottom: ${props => (props.isDraggingOver ? '130px' : '30px')};
-  margin-top: 10px;
+  padding-bottom: ${props => (props.isDraggingOver ? '130px' : '20px')};
+  margin-top: 5px;
   flex-direction: column;
   justify-content: space-between;
 `
@@ -106,7 +106,7 @@ export const CardWrapper = styled.article`
 
 export const MovableCardWrapper = styled(CardWrapper)`
   &:hover {
-    background-color: #f0f0f0;
+    // background-color: #f0f0f0;
     color: #000;
   }
 `
@@ -150,7 +150,7 @@ export const TagSpan = styled.span`
 
 export const AddCardLink = styled.a`
   border-radius: 0 0 3px 3px;
-  color: #838c91;
+  color: #666;
   display: block;
   padding: 5px 2px;
   position: absolute;

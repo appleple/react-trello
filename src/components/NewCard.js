@@ -30,8 +30,8 @@ class NewCard extends Component {
             <EditableLabel placeholder="description" onChange={val => this.updateField('description', val)} />
           </Detail>
         </CardWrapper>
-        <AddButton onClick={this.handleAdd}>Add</AddButton>
-        <CancelButton onClick={onCancel}>Cancel</CancelButton>
+        <AddButton type="button" onClick={this.handleAdd}>Add</AddButton>
+        <CancelButton type="button" onClick={onCancel}>Cancel</CancelButton>
       </div>
     )
   }

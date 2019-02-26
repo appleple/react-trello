@@ -21,8 +21,8 @@ class NewLane extends Component {
             <EditableLabel placeholder="title" onChange={val => this.updateField('title', val)} autoFocus/>
           </LaneTitle>
           <NewLaneButtons>
-            <AddButton onClick={this.handleAdd}>Add</AddButton>
-            <CancelButton onClick={onCancel}>Cancel</CancelButton>
+            <AddButton type="button" onClick={this.handleAdd}>Add</AddButton>
+            <CancelButton type="button" onClick={onCancel}>Cancel</CancelButton>
           </NewLaneButtons>
         </Section>
     )

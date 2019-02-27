@@ -66,7 +66,7 @@ export const LaneFooter = styled.div`
 `
 
 export const ScrollableLane = styled.div`
-  flex: 1;
+  display: flex;
   overflow-y: auto;
   min-width: 250px;
   overflow-x: hidden;

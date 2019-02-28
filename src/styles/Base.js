@@ -73,7 +73,7 @@ export const ScrollableLane = styled.div`
   align-self: center;
   max-height: 90vh;
   padding-bottom: ${props => (props.isDraggingOver ? '130px' : '20px')};
-  margin-top: 5px;
+  margin-top: 10px;
   flex-direction: column;
   justify-content: space-between;
 `
@@ -99,7 +99,7 @@ export const CardWrapper = styled.article`
   position: relative;
   padding: 10px;
   cursor: pointer;
-  max-width: 250px;
+  width: 100%;
   margin-bottom: 7px;
   min-width: 230px;
 `

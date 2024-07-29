@@ -172,7 +172,7 @@ class BoardContainer extends Component {
               />
             );
 
-            return (draggable && laneDraggable && (lane.draggable === undefined ? true : lane.draggable)) ? <Draggable key={lane.id}>{laneToRender}</Draggable> : <span key={lane.id}>{laneToRender}</span>
+            return (draggable && laneDraggable && (lane.movable === undefined ? true : lane.movable)) ? <Draggable key={lane.id}>{laneToRender}</Draggable> : <span key={lane.id}>{laneToRender}</span>
           })}
         </Container>
       </BoardDiv>

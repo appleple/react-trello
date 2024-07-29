@@ -1,6 +1,6 @@
 {
   "name": "@appleple/react-trello",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Pluggable components to add a trello like kanban board to your application",
   "main": "dist/index.js",
   "browserslist": [

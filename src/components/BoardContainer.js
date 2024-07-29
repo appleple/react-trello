@@ -6,8 +6,7 @@ import Draggable from '../dnd/Draggable'
 import PropTypes from 'prop-types'
 import pick from 'lodash/pick'
 import isEqual from 'lodash/isEqual'
-import {BoardDiv, LaneSection} from '../styles/Base'
-import {NewLaneButton} from '../styles/Elements'
+import {BoardDiv} from '../styles/Base'
 import Lane from './Lane'
 import NewLane from './NewLane'
 
@@ -156,7 +155,8 @@ class BoardContainer extends Component {
           onDrop={this.onLaneDrop}
           lockAxis="x"
           getChildPayload={index => this.getLaneDetails(index)}
-          groupName={this.groupName}>
+          groupName={this.groupName}
+        >
           {reducerData.lanes.map((lane, index) => {
             const {id, droppable, ...otherProps} = lane
             const laneToRender = (
@@ -171,11 +171,8 @@ class BoardContainer extends Component {
                 {...passthroughProps}
               />
             );
-            if (typeof lane.draggable === 'boolean') {
-              return (draggable && laneDraggable && lane.draggable) ? <Draggable key={lane.id}>{laneToRender}</Draggable> : <span key={lane.id}>{laneToRender}</span>
-            } else {
-              return (draggable && laneDraggable) ? <Draggable key={lane.id}>{laneToRender}</Draggable> : <span key={lane.id}>{laneToRender}</span>
-            }
+
+            return (draggable && laneDraggable && (lane.draggable === undefined ? true : lane.draggable)) ? <Draggable key={lane.id}>{laneToRender}</Draggable> : <span key={lane.id}>{laneToRender}</span>
           })}
         </Container>
       </BoardDiv>

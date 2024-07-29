@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import {smoothDnD as container, dropHandlers} from 'smooth-dnd'
 
 container.dropHandler = dropHandlers.reactDropHandler().handler;
-container.wrapChild = p => p; // dont wrap children they will already be wrapped
+container.wrapChild = false; // dont wrap children they will already be wrapped
 
 class Container extends Component {
 	constructor(props) {

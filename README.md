@@ -3,7 +3,7 @@
 Pluggable components to add a trello-like kanban board to your application
 
 #### Feature Showcase
-[Storybook](https://rcdexta.github.io/react-trello/)
+[Storybook](https://appleple.github.io/react-trello/)
 
 ## Features
 
@@ -70,9 +70,7 @@ export default class App extends React.Component {
 }
 ```
 
-Refer to storybook for detailed examples: https://rcdexta.github.io/react-trello/
-
-Also refer to the sample project that uses react-trello as illustration: https://github.com/rcdexta/react-trello-example
+Refer to storybook for detailed examples: https://appleple.github.io/react-trello/
 
 ## Documentation
 
@@ -228,7 +226,7 @@ const data = {
 
 It is possible to make the entire board editable by setting the `editable` prop to true. This switch prop will enable existing cards to be deleted and show a `Add Card` link at the bottom of each lane, clicking which will show an inline editable new card.
 
-Check out the [editable board story](https://rcdexta.github.io/react-trello/?selectedKind=Editable%20Board&selectedStory=Add%2FDelete%20Cards&full=0&down=0&left=1&panelRight=0) and its corresponding [source code](https://github.com/rcdexta/react-trello/blob/master/stories/EditableBoard.story.js) for more details.
+Check out the [editable board story](https://appleple.github.io/react-trello/?selectedKind=Editable%20Board&selectedStory=Add%2FDelete%20Cards&full=0&down=0&left=1&panelRight=0) and its corresponding [source code](https://github.com/appleple/react-trello/blob/master/stories/EditableBoard.stories.jsx) for more details.
 
 ## Development
 

@@ -236,17 +236,6 @@ npm ci
 npm run storybook
 ```
 
-### Scripts
-
-1.  `npm run lint` : Lint all js files
-2.  `npm run lintfix` : fix linting errors of all js files
-3.  `npm run semantic-release` : make a release. Leave it for CI to do.
-4.  `npm run storybook`: Start developing by using storybook
-5.  `npm run build`: build the library
-10. `npm run build-storybook`: create static build of storybook that can be used for github pages
-
-Learn how to write stories [here](https://storybook.js.org/docs)
-
 ### License
 
 MIT

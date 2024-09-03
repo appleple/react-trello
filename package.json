@@ -29,11 +29,14 @@
     "build-storybook": "storybook build",
     "lint": "eslint \"./src/**/*.{js,ts,jsx,tsx}\" \"./stories/**/*.{js,ts,jsx,tsx}\"",
     "lint:fix": "eslint \"./src/**/*.{js,ts,jsx,tsx}\" \"./stories/**/*.{js,ts,jsx,tsx}\" --fix",
+    "release:patch": "npm version patch && git push --follow-tags && npm publish",
+    "release:minor": "npm version minor && git push --follow-tags && npm publish",
+    "release:major": "npm version major && git push --follow-tags && npm publish",
     "prepare": "husky"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rcdexta/react-trello"
+    "url": "https://github.com/appleple/react-trello"
   },
   "keywords": [
     "react",
@@ -79,7 +82,6 @@
     "prettier": "3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "semantic-release": "^24.1.0",
     "storybook": "^8.2.9",
     "vite": "^5.4.2"
   },

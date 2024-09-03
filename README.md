@@ -2,18 +2,12 @@
 
 Pluggable components to add a trello-like kanban board to your application
 
-[![Build Status](https://travis-ci.org/rcdexta/react-trello.svg?branch=master)](https://travis-ci.org/rcdexta/react-trello)
-[![npm version](https://badge.fury.io/js/react-trello.svg)](https://badge.fury.io/js/react-trello)
-
-#### Basic Demo
-[![Edit react-trello-example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/1o3zj95m9j)
-
 #### Feature Showcase
 [Storybook](https://rcdexta.github.io/react-trello/)
 
 ## Features
 
-![alt tag](https://raw.githubusercontent.com/rcdexta/react-trello/master/react-trello.gif)
+![alt tag](https://raw.githubusercontent.com/appleple/react-trello/master/react-trello.gif)
 
 * responsive and extensible
 * easily pluggable into existing application
@@ -236,32 +230,12 @@ It is possible to make the entire board editable by setting the `editable` prop 
 
 Check out the [editable board story](https://rcdexta.github.io/react-trello/?selectedKind=Editable%20Board&selectedStory=Add%2FDelete%20Cards&full=0&down=0&left=1&panelRight=0) and its corresponding [source code](https://github.com/rcdexta/react-trello/blob/master/stories/EditableBoard.story.js) for more details.
 
-## Compatible Browsers
-
-Tested to work with following browsers using [Browserling](https://www.browserling.com/):
-
-* Chrome 60 or above
-* Firefox 52 or above
-* Opera 51 or above
-* Safari 4.0 or above
-* Microsoft Edge 15 or above
-
-## Feature Wishlist
-
-* the prop `onDataChange` is a catch all callback that returns the entire board data when anything changes on the board. Micro-events like when a card is added or re-arranged should be possible too
-
-Check the Milestones for this project to track when the above features will be implemented.
-
-## Logging
-
-Pass environment variable `REDUX_LOGGING` as true to enable Redux logging in any environment
-
 ## Development
 
 ```
 cd react-trello/
-yarn install
-yarn run storybook
+npm ci
+npm run storybook
 ```
 
 ### Scripts
@@ -270,14 +244,10 @@ yarn run storybook
 2.  `npm run lintfix` : fix linting errors of all js files
 3.  `npm run semantic-release` : make a release. Leave it for CI to do.
 4.  `npm run storybook`: Start developing by using storybook
-5.  `npm run test` : Run tests. tests file should be written as `*.test.js` and using ES2015
-6.  `npm run test:watch` : Watch tests while writing
-7.  `npm run test:cover` : Show coverage report of your tests
-8.  `npm run test:report` : Report test coverage to codecov.io. Leave this for CI
-9.  `npm run build`: transpile all ES6 component files into ES5(commonjs) and put it in `dist` directory
-10. `npm run docs`: create static build of storybook in `docs` directory that can be used for github pages
+5.  `npm run build`: build the library
+10. `npm run build-storybook`: create static build of storybook that can be used for github pages
 
-Learn how to write stories [here](https://storybook.js.org/basics/writing-stories/)
+Learn how to write stories [here](https://storybook.js.org/docs)
 
 ### License
 

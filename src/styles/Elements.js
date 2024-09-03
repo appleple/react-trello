@@ -1,12 +1,12 @@
-import styled from 'styled-components'
-import {CardWrapper, MovableCardWrapper} from './Base'
+import styled from 'styled-components';
+import { CardWrapper, MovableCardWrapper } from './Base';
 
 export const DeleteWrapper = styled.div`
   text-align: center;
   position: absolute;
   top: -1px;
   right: 2px;
-`
+`;
 
 export const DelButton = styled.button`
   font-weight: bold;
@@ -22,11 +22,11 @@ export const DelButton = styled.button`
   width: 15px;
   background: inherit;
   cursor: pointer;
-  
+
   ${MovableCardWrapper}:hover & {
     opacity: 1;
   }
-`
+`;
 
 export const DeleteIcon = styled.span`
   position: relative;
@@ -74,7 +74,7 @@ export const DeleteIcon = styled.span`
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
-`
+`;
 
 export const ExpandCollapseBase = styled.span`
   width: 36px;
@@ -82,7 +82,7 @@ export const ExpandCollapseBase = styled.span`
   font-size: 14px;
   position: relative;
   cursor: pointer;
-`
+`;
 
 export const CollapseBtn = styled(ExpandCollapseBase)`
   &:before {
@@ -104,7 +104,7 @@ export const CollapseBtn = styled(ExpandCollapseBase)`
     border-left: 3px solid transparent;
     border-right: 3px solid transparent;
   }
-`
+`;
 
 export const ExpandBtn = styled(ExpandCollapseBase)`
   &:before {
@@ -126,7 +126,7 @@ export const ExpandBtn = styled(ExpandCollapseBase)`
     border-left: 3px solid transparent;
     border-right: 3px solid transparent;
   }
-`
+`;
 
 export const AddButton = styled.button`
   background: #5aac44;
@@ -142,7 +142,7 @@ export const AddButton = styled.button`
   font-size: 14px;
   cursor: pointer;
   margin-bottom: 0;
-`
+`;
 
 export const CancelButton = styled.button`
   background: #999999;
@@ -157,7 +157,7 @@ export const CancelButton = styled.button`
   font-size: 14px;
   cursor: pointer;
   margin-bottom: 0;
-`
+`;
 export const NewLaneButton = styled.button`
   background: #2b6aa3;
   border: none;
@@ -172,4 +172,4 @@ export const NewLaneButton = styled.button`
   font-size: 13px;
   cursor: pointer;
   margin-bottom: 0;
-`
+`;

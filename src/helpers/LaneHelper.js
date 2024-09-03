@@ -1,98 +1,98 @@
-import update from 'immutability-helper'
-import uuidv1 from 'uuid/v1'
+import update from 'immutability-helper';
+import { v4 as uuidv4 } from 'uuid';
 
 const LaneHelper = {
-  initialiseLanes: (state, {lanes}) => {
-    const newLanes = lanes.map(lane => {
-      lane.currentPage = 1
-      lane.cards && lane.cards.forEach(c => (c.laneId = lane.id))
-      return lane
-    })
-    return update(state, {lanes: {$set: newLanes}})
+  initialiseLanes: (state, { lanes }) => {
+    const newLanes = lanes.map((lane) => {
+      lane.currentPage = 1;
+      lane.cards && lane.cards.forEach((c) => (c.laneId = lane.id));
+      return lane;
+    });
+    return update(state, { lanes: { $set: newLanes } });
   },
 
-  paginateLane: (state, {laneId, newCards, nextPage}) => {
-    const updatedLanes = LaneHelper.appendCardsToLane(state, {laneId: laneId, newCards: newCards})
-    updatedLanes.find(lane => lane.id === laneId).currentPage = nextPage
-    return update(state, {lanes: {$set: updatedLanes}})
+  paginateLane: (state, { laneId, newCards, nextPage }) => {
+    const updatedLanes = LaneHelper.appendCardsToLane(state, { laneId: laneId, newCards: newCards });
+    updatedLanes.find((lane) => lane.id === laneId).currentPage = nextPage;
+    return update(state, { lanes: { $set: updatedLanes } });
   },
 
-  appendCardsToLane: (state, {laneId, newCards, index}) => {
-    const lane = state.lanes.find(lane => lane.id === laneId)
+  appendCardsToLane: (state, { laneId, newCards, index }) => {
+    const lane = state.lanes.find((lane) => lane.id === laneId);
     newCards = newCards
-      .map(c => update(c, {laneId: {$set: laneId}}))
-      .filter(c => lane.cards.find(card => card.id === c.id) == null)
-    return state.lanes.map(lane => {
+      .map((c) => update(c, { laneId: { $set: laneId } }))
+      .filter((c) => lane.cards.find((card) => card.id === c.id) == null);
+    return state.lanes.map((lane) => {
       if (lane.id === laneId) {
         if (index !== undefined) {
-          return update(lane, {cards: {$splice: [[index, 0, ...newCards]]}})
+          return update(lane, { cards: { $splice: [[index, 0, ...newCards]] } });
         } else {
-          const cardsToUpdate = [...lane.cards, ...newCards]
-          return update(lane, {cards: {$set: cardsToUpdate}})
+          const cardsToUpdate = [...lane.cards, ...newCards];
+          return update(lane, { cards: { $set: cardsToUpdate } });
         }
       } else {
-        return lane
+        return lane;
       }
-    })
+    });
   },
 
-  appendCardToLane: (state, {laneId, card, index}) => {
-    const newLanes = LaneHelper.appendCardsToLane(state, {laneId: laneId, newCards: [card], index})
-    return update(state, {lanes: {$set: newLanes}})
+  appendCardToLane: (state, { laneId, card, index }) => {
+    const newLanes = LaneHelper.appendCardsToLane(state, { laneId: laneId, newCards: [card], index });
+    return update(state, { lanes: { $set: newLanes } });
   },
 
   addLane: (state, lane) => {
-    const newLane = {id: uuidv1(), cards: [], ...lane}
-    return update(state, {lanes: {$push: [newLane]}})
+    const newLane = { id: uuidv4(), cards: [], ...lane };
+    return update(state, { lanes: { $push: [newLane] } });
   },
 
-  removeCardFromLane: (state, {laneId, cardId}) => {
-    const lanes = state.lanes.map(lane => {
+  removeCardFromLane: (state, { laneId, cardId }) => {
+    const lanes = state.lanes.map((lane) => {
       if (lane.id === laneId) {
-        let newCards = lane.cards.filter(card => card.id !== cardId)
-        return update(lane, {cards: {$set: newCards}})
+        let newCards = lane.cards.filter((card) => card.id !== cardId);
+        return update(lane, { cards: { $set: newCards } });
       } else {
-        return lane
+        return lane;
       }
-    })
-    return update(state, {lanes: {$set: lanes}})
+    });
+    return update(state, { lanes: { $set: lanes } });
   },
 
-  moveCardAcrossLanes: (state, {fromLaneId, toLaneId, cardId, index}) => {
-    let cardToMove = null
-    const interimLanes = state.lanes.map(lane => {
+  moveCardAcrossLanes: (state, { fromLaneId, toLaneId, cardId, index }) => {
+    let cardToMove = null;
+    const interimLanes = state.lanes.map((lane) => {
       if (lane.id === fromLaneId) {
-        cardToMove = lane.cards.find(card => card.id === cardId)
-        const newCards = lane.cards.filter(card => card.id !== cardId)
-        return update(lane, {cards: {$set: newCards}})
+        cardToMove = lane.cards.find((card) => card.id === cardId);
+        const newCards = lane.cards.filter((card) => card.id !== cardId);
+        return update(lane, { cards: { $set: newCards } });
       } else {
-        return lane
+        return lane;
       }
-    })
-    const updatedState = update(state, {lanes: {$set: interimLanes}})
-    return LaneHelper.appendCardToLane(updatedState, {laneId: toLaneId, card: cardToMove, index: index})
+    });
+    const updatedState = update(state, { lanes: { $set: interimLanes } });
+    return LaneHelper.appendCardToLane(updatedState, { laneId: toLaneId, card: cardToMove, index: index });
   },
 
-  updateCardsForLane: (state, {laneId, cards}) => {
-    const lanes = state.lanes.map(lane => {
+  updateCardsForLane: (state, { laneId, cards }) => {
+    const lanes = state.lanes.map((lane) => {
       if (lane.id === laneId) {
-        return update(lane, {cards: {$set: cards}})
+        return update(lane, { cards: { $set: cards } });
       } else {
-        return lane
+        return lane;
       }
-    })
-    return update(state, {lanes: {$set: lanes}})
+    });
+    return update(state, { lanes: { $set: lanes } });
   },
 
   updateLanes: (state, lanes) => {
-    return {...state, ...{lanes: lanes}}
+    return { ...state, ...{ lanes: lanes } };
   },
 
-  moveLane: (state, {oldIndex, newIndex}) => {
-    const laneToMove = state.lanes[oldIndex]
-    const tempState = update(state, {lanes: {$splice: [[oldIndex, 1]]}});
-    return update(tempState, {lanes: {$splice: [[newIndex, 0, laneToMove]]}})
-  }
-}
+  moveLane: (state, { oldIndex, newIndex }) => {
+    const laneToMove = state.lanes[oldIndex];
+    const tempState = update(state, { lanes: { $splice: [[oldIndex, 1]] } });
+    return update(tempState, { lanes: { $splice: [[newIndex, 0, laneToMove]] } });
+  },
+};
 
-export default LaneHelper
+export default LaneHelper;

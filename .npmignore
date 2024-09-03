@@ -1,6 +1,13 @@
 .DS_Store
 *.log
 src
-test
-examples
-coverage
+.storybook
+stories
+node_modules
+package-lock.json
+.gitignore
+.node-version
+eslint.config.mjs
+prettier.config.mjs
+vite.config.mjs
+/storybook-static

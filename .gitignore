@@ -5,3 +5,6 @@ coverage
 .idea
 npm-debug.log
 dist/
+/storybook-static
+
+*storybook.log
